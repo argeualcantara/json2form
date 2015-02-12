@@ -40,7 +40,7 @@ var form =   {
     },{
       description: '',
       fields: [{
-         name: 'submit',
+         name: 'send',
          type: 'button',
          value: 'Save',
          onclick: undefined
@@ -51,6 +51,6 @@ window.onload = function(){
   try{
       json2form.setUpForm(form);
   } catch (err) {
-    console.log('Error loading from.');
+    console.log('Error loading from.' + err.stack);
   }
 }
