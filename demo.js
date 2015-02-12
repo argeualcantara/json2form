@@ -1,39 +1,39 @@
 var form =   {
     sections:[{
-      description: 'Dados de autenticação',
+      description: 'Authentication data',
       fields: [{
-        name: 'login',
+        name: 'Login',
         mandatory: true,
         type: 'text'
       },{
-        name: 'password',
+        name: 'Password',
         mandatory: true,
         type: 'password'
       },{
-        name: 'expirationDate',
+        name: 'Expiration Date',
         mandatory: true,
         type: 'date'
       },{
-        name: 'enabled',
+        name: 'Enabled',
         mandatory: false,
         type: 'checkbox'
       }]
     },{
-      description: 'Dados de contato',
+      description: 'Contact data',
       fields: [{
-        name: 'rua',
+        name: 'Address',
         mandatory: false,
         type: 'text'
       },{
-        name: 'complemento',
+        name: 'Complement',
         mandatory: false,
         type: 'text'
       },{
-        name: 'bairro',
+        name: 'State/Province',
         mandatory: false,
         type: 'text'
       },{
-        name: 'telefone',
+        name: 'Phone',
         mandatory: false,
         type: 'tel'
       }]
@@ -41,10 +41,16 @@ var form =   {
       description: '',
       fields: [{
          name: 'submit',
-         type: 'button'
+         type: 'button',
+         value: 'Save',
+         onclick: undefined
       }]
     }]
 };
 window.onload = function(){
-  json2form.setUpForm(form);
+  try{
+      json2form.setUpForm(form);
+  } catch (err) {
+    console.log('Error loading from.');
+  }
 }
