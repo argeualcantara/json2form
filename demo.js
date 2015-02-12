@@ -44,6 +44,11 @@ var form =   {
          type: 'button',
          value: 'Save',
          onclick: undefined
+      }, {
+         name: 'button',
+         type: 'button',
+         value: 'TestFunction',
+         onclick: function(){alert('I am another function');}
       }]
     }]
 };
