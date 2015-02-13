@@ -1,4 +1,7 @@
 var form =   {
+    formAttr:{
+      method: 'post',
+      action: '/saveUser'},
     sections:[{
       description: 'Authentication data',
       fields: [{
@@ -40,14 +43,12 @@ var form =   {
     },{
       description: '',
       fields: [{
-         name: 'send',
+         name: 'Save',
          type: 'button',
-         value: 'Save',
          onclick: undefined
       }, {
-         name: 'button',
+         name: 'TestFunction',
          type: 'button',
-         value: 'TestFunction',
          onclick: function(){alert('I am another function');}
       }]
     }]

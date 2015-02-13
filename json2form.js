@@ -25,9 +25,17 @@ var json2form = ({
 		"use strict";
 		var i = 0, sizei = 0, section = null, secElm = null, header = null, title = null,
 			fields = null, j = 0, sizej = 0, article = null, field = null, label = null, name = null,
-			input = null, onclickFunction = null;
+			input = null, onclickFunction = null, method = null;
 		this.form = document.createElement('form');
-		this.form.method = 'post';
+		if (jsonObject.formAttr.method){
+			method = jsonObject.formAttr.method;
+		}else{
+			method = 'post';
+		}
+		this.form.method = method;
+		if (jsonObject.formAttr.action){
+			this.form.action = jsonObject.formAttr.action;
+		}
 		for(i = 0, sizei = jsonObject.sections.length; i < sizei; i+=1){
 			section = jsonObject.sections[i];
 			secElm = document.createElement('section');
@@ -54,11 +62,11 @@ var json2form = ({
 					label.className = 'mandatory';
 				}
 				if(field.type === 'button'){
-					input.value = field.value;
-					if(!field.onclick){
-						onclickFunction = this.validate;
-					}else{
+					input.value = field.name;
+					if(field.onclick){
 						onclickFunction = field.onclick;
+					}else{
+						onclickFunction = this.validate;
 					}
 					input.onclick = onclickFunction;
 				}
